@@ -56,6 +56,7 @@ Para el desarrollo de esta solución tecnológica, se va a hacer uso de un entor
 #### Requisitos funcionales del proyecto
 
 | No | Descripción                                                                                       | Usuario      |
+| No | Usuario                                                                                       |      |
 |----|---------------------------------------------------------------------------------------------------|--------------|
 | R1 | Los usuarios deben poder registrarse utilizando su nombre completo, correo electrónico, contraseña (PIN 4 dígitos) y número de tarjeta MIO. | ✔️           |
 | R2 | Los usuarios deben poder iniciar sesión con sus credenciales (Correo y contraseña PIN 4 dígitos) ya existentes dentro de la base de datos. | ✔️           |
@@ -63,7 +64,7 @@ Para el desarrollo de esta solución tecnológica, se va a hacer uso de un entor
 | R4 | La plataforma debe permitir a los usuarios consultar el saldo de su tarjeta del MIO en tiempo real. | ✔️           |
 | R5 | El sistema deberá permitir al usuario consultar sus transacciones anteriores, para que este pueda tener un seguimiento de sus recargas. | ✔️           |
 
-| No | Descripción                                                                                       | Administrador |
+| No | Administrador                                                                                       |  |
 |----|---------------------------------------------------------------------------------------------------|---------------|
 | R6 | Los administradores deben poder iniciar sesión con sus credenciales (correo y contraseña PIN 4 dígitos) ya existentes dentro de la base de datos. | ✔️            |
 | R7 | Los administradores deben tener la capacidad de visualizar la información de los usuarios activos e inactivos. | ✔️            |
