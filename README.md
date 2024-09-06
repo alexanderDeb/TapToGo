@@ -69,3 +69,14 @@ Para el desarrollo de esta solución tecnológica, se va a hacer uso de un entor
 | R7 | Los administradores deben tener la capacidad de visualizar la información de los usuarios activos e inactivos. | ✔️            |
 | R8 | Los administradores deben tener la capacidad de crear otros administradores.                      | ✔️            |
 | R9 | Los administradores deben tener la capacidad de cambiar la actividad o inactividad de los usuarios. | ✔️            |
+
+#### Requisitos no funcionales del proyecto
+
+| No | Descripción                                                                 |
+|----|-----------------------------------------------------------------------------|
+| R1 | La interfaz de la aplicación móvil y la web deberán conservar un diseño similar (colores, gráficos y textos, etc). |
+| R2 | La navegación en la aplicación móvil y en la web deberá ser sencilla e intuitiva. |
+
+#### Metodología del Desarrollo
+
+La metodología escogida para el desarrollo del proyecto es la **metodología Scrum**, la cual está basada en iteraciones incrementales llamadas **sprints**, que son periodos cortos de tiempo (generalmente de dos a cuatro semanas) en los cuales un equipo trabaja para completar un conjunto específico de tareas o funcionalidades del proyecto.
