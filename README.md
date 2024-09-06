@@ -52,7 +52,7 @@ Para el desarrollo de esta solución tecnológica, se va a hacer uso de un entor
 **Administrador:** Este rol corresponde al personal encargado de la administración de la plataforma. Tienen acceso a funcionalidades avanzadas como la gestión de usuarios.
 
 ### Roles del equipo de trabajo (Trello)
-![Imagen del tablero de Trello]([https://www.you.com/logo.png](https://drive.google.com/file/d/16X_IXzNI3Ozj4a9IDTTAy99XRmTGVu1j/view?usp=drive_link))
+![Imagen del tablero de Trello](https://drive.google.com/file/d/16X_IXzNI3Ozj4a9IDTTAy99XRmTGVu1j/view?usp=drive_link)
 
 ---
 
