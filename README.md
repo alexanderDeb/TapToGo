@@ -80,3 +80,22 @@ Para el desarrollo de esta solución tecnológica, se va a hacer uso de un entor
 #### Metodología del Desarrollo
 
 La metodología escogida para el desarrollo del proyecto es la **metodología Scrum**, la cual está basada en iteraciones incrementales llamadas **sprints**, que son periodos cortos de tiempo (generalmente de dos a cuatro semanas) en los cuales un equipo trabaja para completar un conjunto específico de tareas o funcionalidades del proyecto.
+
+#### Diagrama para la arquitectura de la base de datos
+
+**Nombre de la base de datos:** TapToGo
+
+**Colecciones:**
+- Users
+
+**Estructura de documentos:**
+
+| Campo       | Tipo de dato  |
+|-------------|---------------|
+| _id         | ObjectId (llave primaria) |
+| Name        | String        |
+| Email       | String        |
+| Contraseña  | Integer       |
+| RFID        | String        |
+| Saldo       | Integer       |
+| Status      | Boolean       |
