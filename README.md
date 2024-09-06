@@ -55,7 +55,6 @@ Para el desarrollo de esta solución tecnológica, se va a hacer uso de un entor
 
 #### Requisitos funcionales del proyecto
 
-| No | Descripción                                                                                       |      |
 | No | Usuario                                                                                          |  |
 |----|---------------------------------------------------------------------------------------------------|--------------|
 | R1 | Los usuarios deben poder registrarse utilizando su nombre completo, correo electrónico, contraseña (PIN 4 dígitos) y número de tarjeta MIO. | ✔️           |
