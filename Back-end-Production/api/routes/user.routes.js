@@ -11,7 +11,7 @@ import {
 const router = Router();
 
 router.get("/user", getUsers);
-router.get("/user/:rfid", getUser);
+router.get("/user/:email", getUser);
 router.put("/user/:rfid", updateUserSaldo);
 router.put("/userspend/:rfid", spendSaldo);
 router.post("/user", createUser);

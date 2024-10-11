@@ -34,7 +34,7 @@ export const getUsers = async (req, res) => {
 };
 
 export const getUser = async (req, res) => {
-  const query = { rfid: req.params.rfid };
+  const query = { email: req.params.email };
   const user = await User.findOne(query);
   if (!user) return res.status(404).json({ message: "Usuario no encontrado" });
   res.json(user);
