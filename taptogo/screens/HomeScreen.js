@@ -1,21 +1,21 @@
 import { View, Text, ImageBackground, Image, ScrollView } from "react-native";
 import React, { useContext, useEffect, useState } from "react";
-import { userContext } from "../context/cardContext";
-import { TouchableOpacity } from "react-native-gesture-handler";
+import { userContext } from "../context/userContext.js";
 import Tarjeta from "../assets/img/veniConocelo.png";
+import { useNavigation } from "@react-navigation/native";
 import MIO from "../assets/img/MIO_icon.png";
+import Header from "../components/header";
+import HistoryCard from "../components/historyCard";
 
 export default function HomeScreen() {
+  const Navigator = useNavigation();
   const { user, setUser } = useContext(userContext);
   const [info, setInfo] = useState("");
-  console.log(
-    "Username: " + user.cardNo + " - " + "Password: " + user.password
-  );
 
   const GetInfo = async () => {
     try {
       const response = await fetch(
-        `https://rfidtaptogo.vercel.app/api/user/${user.cardNo}`,
+        `https://rfidtaptogo.vercel.app/api/user/${user.email}`,
         {
           method: "GET",
           headers: {
@@ -25,7 +25,6 @@ export default function HomeScreen() {
       );
       const data = await response.json();
       setInfo(data);
-      console.log(data);
     } catch (error) {
       console.error(error);
       return 0;
@@ -38,21 +37,21 @@ export default function HomeScreen() {
 
   return (
     <View style={{ height: "100%", paddingHorizontal: 20 }}>
-      <View style={{ marginTop: "10%", flexDirection: "row", height: "7%" }}>
-        <Text style={{ color: "#706868", fontSize: 25, fontFamily: "" }}>
-          Hola,{" "}
-        </Text>
-        <Text style={{ color: "#0367A6", fontSize: 25, fontWeight: "bold" }}>
-          {info.name}
-        </Text>
-      </View>
-      <View style={{ height: "93%", paddingHorizontal: 10 }}>
-        <Text style={{ fontSize: 16, fontWeight: "bold", marginBottom: 10 }}>
+      <Header />
+      <View style={{ height: "100%", paddingHorizontal: 10 }}>
+        <Text
+          style={{
+            fontSize: 16,
+            fontWeight: "bold",
+            marginBottom: 10,
+            marginTop: 30,
+          }}
+        >
           Tarjetas
         </Text>
         <View
           style={{
-            height: "25%",
+            height: "21%",
             width: "100%",
             borderRadius: 30,
           }}
@@ -98,24 +97,28 @@ export default function HomeScreen() {
           </ImageBackground>
         </View>
         <View>
-          <Text style={{ fontSize: 16, fontWeight: "bold", marginTop: 20 }}>
+          <Text
+            style={{ fontSize: 16, fontWeight: "bold", marginVertical: 40 }}
+          >
             Transacciones
           </Text>
         </View>
-        <ScrollView style={{ margin: 10 }}>
+        <ScrollView style={{ paddingHorizontal: 10 }}>
           <View>
             <Text style={{ color: "#8D8D8D" }}>Hoy</Text>
           </View>
-          <View
-            style={{
-              height: 60,
-              marginTop: 10,
-              borderRadius: 15,
-              padding:5,
-            }}
-          >
-            <Text>hola</Text>
-          </View>
+          <HistoryCard
+            Tittle="Recarga en Universidades"
+            Time="Nov 21, 4:00 PM"
+            Cost="+ $15,000"
+            PositiveOrNegative="Possitive"
+          />
+          <HistoryCard
+            Tittle="Abordo en Universidades"
+            Time="Nov 21, 3:57 PM"
+            Cost="- $2,400"
+            PositiveOrNegative="Negative"
+          />
         </ScrollView>
       </View>
     </View>

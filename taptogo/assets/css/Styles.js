@@ -2,9 +2,7 @@ import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
   container: {
-    padding: 20,
-    paddingBottom: 5,
-    paddingTop: 5,
+    paddingHorizontal: 20,
   },
 
   Button: {
@@ -44,7 +42,7 @@ export const styles = StyleSheet.create({
 
   LoginImage: {
     width: "100%",
-    height: "60%",
+    height: "40%",
   },
 
   ContainerFlex: {
@@ -52,5 +50,12 @@ export const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     marginTop: 10,
+  },
+
+  Input: {
+    borderRadius: 15,
+    borderWidth: 1,
+    borderColor: "#D9D9D9",
+    padding: 15,
   },
 });

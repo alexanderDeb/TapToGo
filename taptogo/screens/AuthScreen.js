@@ -1,15 +1,15 @@
-import { View, Text, TextInput, FlatList, Keyboard } from "react-native";
+import { View, Text, Keyboard, Alert } from "react-native";
 import React, { useState, useContext } from "react";
 import { useNavigation } from "@react-navigation/native";
 import { OtpInput } from "react-native-otp-entry";
-import { userContext } from "../context/cardContext.js";
-// import Dialpad from "../components/dialpad.tsx";
+import { userContext } from "../context/userContext.js";
+import Dialpad from "../components/dialpad.tsx";
 
 export default function AuthScreen() {
   const [value, setValue] = useState([]);
   const Navigate = useNavigation();
   const { user, setUser } = useContext(userContext);
-  console.log(user.cardNo);
+
   return (
     <View style={{ backgroundColor: "#0367A6", height: "100%" }}>
       <View
@@ -34,15 +34,35 @@ export default function AuthScreen() {
             numberOfDigits={4}
             focusColor={"#0367A6"}
             containerStyle={{ borderRadius: 12 }}
-            onTextChange={(text) => console.log(text)}
             textInputProps={{
               accessibilityLabel: "One-Time Password",
               onPress: () => {
-                console.log(Keyboard.dismiss);
+                Keyboard.dismiss;
               },
             }}
-            onFilled={(text) => {
-              setUser({ cardNo: user.cardNo, password: text });
+            onFilled={async (text) => {
+              const AuthData = { email: user.email, password: text };
+              try {
+                const response = await fetch(
+                  `https://rfidtaptogo.vercel.app/api/login`,
+                  {
+                    method: "POST",
+                    headers: {
+                      "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify(AuthData),
+                  }
+                );
+                const Response = await response.json();
+                if (response.status == 201) {
+                  setUser({ email: user.email, password: text });
+                } else {
+                  Alert.alert("Error", Response.message, [{ text: "OK" }]);
+                }
+              } catch (error) {
+                console.error(error);
+                return 0;
+              }
             }}
             focusStickBlinkingDuration={1000}
             theme={{

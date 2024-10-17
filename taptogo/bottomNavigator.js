@@ -5,7 +5,6 @@ import { NavigationContainer } from "@react-navigation/native";
 // screens
 import HomeScreen from "./screens/HomeScreen";
 import RechargeScreen from "./screens/RechargeScreen";
-import StadisticsScreen from "./screens/StadisticsScreen";
 //icons
 import { AntDesign } from "@expo/vector-icons";
 
@@ -32,6 +31,7 @@ function MyTabs() {
           tabBarIcon: ({ color, size }) => (
             <AntDesign name="home" color={color} size={size} />
           ),
+          unmountOnBlur: true,
         }}
       />
       <Tab.Screen
@@ -41,15 +41,7 @@ function MyTabs() {
           tabBarIcon: ({ color, size }) => (
             <AntDesign name="creditcard" color={color} size={size} />
           ),
-        }}
-      />
-      <Tab.Screen
-        name="Stadistics"
-        component={StadisticsScreen}
-        options={{
-          tabBarIcon: ({ color, size }) => (
-            <AntDesign name="barschart" color={color} size={size} />
-          ),
+          unmountOnBlur: true,
         }}
       />
     </Tab.Navigator>

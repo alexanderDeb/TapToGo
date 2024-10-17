@@ -1,10 +1,15 @@
-import { View, Text } from 'react-native'
-import React from 'react'
+import { View, ScrollView } from "react-native";
+import React from "react";
+import Header from "../components/header";
+import FormRecharge from "../components/formRecharge";
 
 export default function RechargeScreen() {
   return (
-    <View>
-      <Text>This is Recharge Screen</Text>
+    <View
+      style={{ flex: 1, position: "absolute", gap: 15, paddingHorizontal: 20 }}
+    >
+      <Header />
+      <FormRecharge />
     </View>
-  )
+  );
 }

@@ -1,6 +1,6 @@
 import { View, Text, Image } from "react-native";
 import React, { useState, useContext } from "react";
-import { userContext } from "../context/cardContext.js";
+import { userContext } from "../context/userContext.js";
 import { TextInput, TouchableOpacity } from "react-native-gesture-handler";
 import { useNavigation } from "@react-navigation/native";
 
@@ -8,7 +8,7 @@ import { useNavigation } from "@react-navigation/native";
 import { styles } from "../assets/css/Styles.js";
 
 // importo el icono svg
-import Bus from "../assets/img/Bus.png";
+import Bus from "../assets/img/Bus2.png";
 import MIO from "../assets/img/MIO_icon.png";
 
 export default function LoginScreen() {
@@ -22,31 +22,36 @@ export default function LoginScreen() {
       </View>
       <View style={styles.LoginContentContainer}>
         <TextInput
-          placeholder="No. Tarjeta"
+          placeholder="Correo electronico"
           style={styles.LoginInput}
           onChangeText={(value) => setNumeroTargeta(value)}
         />
         <TouchableOpacity
           onPress={() => {
             Navigator.navigate("Auth");
-            setUser({ cardNo: numeroTargeta.toUpperCase(), password: null });
-            console.log(numeroTargeta);
+            setUser({ email: numeroTargeta, password: null });
           }}
           style={styles.Button}
         >
           <Text style={styles.ButtonText}>Entrar</Text>
         </TouchableOpacity>
-        <View style={styles.ContainerFlex}>
-          <View>
-            <TouchableOpacity>
-              <Text style={{ color: "#706868" }}>Ayuda</Text>
+        <View
+          style={{
+            width: "100%",
+            height: "15%",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          <View style={{ flexDirection: "row", gap: 5 }}>
+            <Text>No tienes una cuenta?</Text>
+            <TouchableOpacity
+              onPress={() => {
+                Navigator.navigate("Register");
+              }}
+            >
+              <Text style={{ color: "#32A65A" }}>Ingresa aqui</Text>
             </TouchableOpacity>
-          </View>
-          <View>
-            <View style={{ flex: 1, flexDirection: "row", gap: 6 }}>
-              <Text style={{ color: "#706868" }}>By</Text>
-              <Image source={MIO} style={{ height: 20, width: 70 }} />
-            </View>
           </View>
         </View>
       </View>

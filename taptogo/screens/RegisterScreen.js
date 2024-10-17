@@ -1,12 +1,12 @@
-import { View, Text } from 'react-native'
-import React from 'react';
-import { TouchableOpacity } from "react-native-gesture-handler";
-import { useNavigation } from "@react-navigation/native";
+import React from "react";
+import FormRegister from "../components/formRegister";
+import { View } from "react-native";
+import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 
 export default function RegisterScreen() {
   return (
-    <View>
-      <Text>This is Register Screen</Text>
+    <View style={{ flex: 1, position: "absolute" }}>
+      <FormRegister />
     </View>
-  )
+  );
 }
