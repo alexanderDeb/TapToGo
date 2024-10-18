@@ -12,7 +12,7 @@ const router = Router();
 
 router.get("/user", getUsers);
 router.get("/user/:email", getUser);
-router.put("/user/:rfid", updateUserSaldo);
+router.put("/user/:email", updateUserSaldo);
 router.put("/userspend/:rfid", spendSaldo);
 router.post("/user", createUser);
 router.post("/login", loginUser);

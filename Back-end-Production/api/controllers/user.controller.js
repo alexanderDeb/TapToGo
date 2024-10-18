@@ -41,12 +41,12 @@ export const getUser = async (req, res) => {
 };
 
 export const updateUserSaldo = async (req, res) => {
-  const query = { rfid: req.params.rfid };
+  const query = { email: req.params.email };
   const user = await User.findOne(query);
   const userSaldo = {
     name: user.name,
     email: user.email,
-    password :user.password,
+    password : user.password,
     rfid: user.rfid,
     saldo: user.saldo + req.body.saldo,
     status: user.status,
