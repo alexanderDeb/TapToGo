@@ -1,9 +1,9 @@
-import { React, useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { React, useState} from "react";
+// import { useNavigate } from "react-router-dom";
 
 //Estados del formulario
 export default function Register() {
-    let navigate = useNavigate();
+    // let navigate = useNavigate();
     const [Name, setName] = useState("");
     const [Email, setEmail] = useState("");
     const [Role, setRole] = useState("");
@@ -12,7 +12,7 @@ export default function Register() {
     const [ConfirmPassword, setConfirmPassword] = useState("");
 
     //URL del registro en la API
-    const register_URL = ""; 
+    const register_URL = "https://rfidtaptogo.vercel.app/api/user"; 
 
     const handlerSubmit = async (e) => {
         //Evita que la pagina se recargue
@@ -46,7 +46,97 @@ export default function Register() {
             alert("Las contraseñas no coinciden. ")
         }
 
-    }
+    };
+    return (
+        <div className="min-h-screen flex items-center justify-center ">
+            {/* w-full ocupara todo el espacio horizontal del contenedor */}
+            {/* max-w-xl ancho máximo para el elemento */}
+            <div className="bg-blueForm p-8 rounded-lg shadow-lg w-full max-w-xl">
+                <p className="text-base-100 text-center font-bold mb-4">Ingresa los siguientes datos para registrar un administrador o usuario</p>
+                <form onSubmit={handlerSubmit} className="space-y-4">
+                    <div>
+                        <label className="block text-left text-base-100">Nombre</label>
+                        <input
+                            type="text"
+                            value={Name}
+                            onChange={(e) => setName(e.target.value)}
+                            required
+                            className="input input-bordered w-full"
+                        />
+                    </div>
+                    <div>
+                        <label className="block text-left text-base-100">Correo</label>
+                        <input
+                            type="email"
+                            value={Email}
+                            onChange={(e) => setEmail(e.target.value)}
+                            required
+                            className="input input-bordered w-full"
+                        />
+                    </div>
+                    <div className="flex space-x-4">
+                        <div className="w-full">
+                            <label className="block text-left text-base-100">Rol</label>
+                            <input
+                            type="text"
+                            value={Role}
+                            onChange={(e) => setRole(e.target.value)}
+                            required
+                            className="input input-bordered w-full"
+                            />  
+
+                        </div>
+                            
+                        <div className="w-full">
+                            <label className="block text-left text-base-100">Estado</label>
+                            <input
+                            type="text"
+                            value={Status}
+                            onChange={(e) => setStatus(e.target.value)}
+                            required
+                            className="input input-bordered w-full"
+                            />
+
+                        </div>
+                        
+                    </div>
+                    {/* // flex space-x-4 para que ambos campos estén alineados horizontalmente. */}
+                    <div className="flex space-x-4">
+                        <div className="w-full">
+                            <label className="block text-left text-base-100">Contraseña</label>
+                            <input
+                            type="password"
+                            value={Password}
+                            onChange={(e) => setPassword(e.target.value)}
+                            required
+                            // w-full en Tailwind CSS se utiliza para establecer el ancho completo de un elemento
+                            className="input input-bordered w-full"
+                            />
+                        </div>
+
+                        <div className="w-full">
+                            <label className="block text-left text-base-100">Repetir contraseña</label>
+                            <input
+                            type="password"
+                            value={ConfirmPassword}
+                            onChange={(e) => setConfirmPassword(e.target.value)}
+                            required
+                            className="input input-bordered w-full"
+                            />
+
+                        </div>
+                        
+                    </div>
+                    <div className="text-center mt-6">
+                        <button type="submit" className="btn-circle w-full  bg-BTN hover:bg-BTNHover text-base-100 font-bold">
+                            Registrar
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    );
 
 
 }

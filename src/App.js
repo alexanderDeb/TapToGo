@@ -1,9 +1,9 @@
-// import Register from './Pages/register_page'
+import Register from './Pages/register_page'
 
 
 function App() {
   return (
-    <>Hola</>
+    < Register/>
   );
 }
 
