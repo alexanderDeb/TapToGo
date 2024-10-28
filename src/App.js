@@ -1,10 +1,7 @@
-import Register from './Pages/register_page'
-
+import Navigation from "./routes/navigation";
 
 function App() {
-  return (
-    < Register/>
-  );
+  return <Navigation />;
 }
 
 export default App;
