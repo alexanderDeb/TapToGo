@@ -3,6 +3,7 @@ import morgan from "morgan";
 import cors from "cors";
 import { ConnectDB } from "./db.js";
 import userRoutes from "./routes/user.routes.js";
+import adminRoutes from "./routes/admin.routes.js"
 
 const app = express();
 
@@ -11,9 +12,9 @@ app.use(express.json());
 app.use(morgan("dev"));
 
 app.use("/api", userRoutes);
+app.use("/api", adminRoutes);
 
 ConnectDB();
-app.listen(8000);
-console.log("Server is running in the port: ", 8000);
+console.log("Server is running in the port: ", 3000);
 
 export default app
