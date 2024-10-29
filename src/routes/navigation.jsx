@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import WellcomePage from "../Pages/wellcomePage";
+import WelcomePage from "../Pages/welcomePage";
 import LoginPage from "../Pages/loginPage";
 import Dashboard from "../Pages/dashboard";
 import Register from "../Pages/registerPage";
@@ -12,8 +12,8 @@ export default function Navigation() {
       <Routes>
         {/* When you are Authenticated you can't enter in the login page */}
         <Route element={<IsAuthenticated />}>
-          <Route path="*" element={<WellcomePage />} />
-          <Route exact path="/" element={<WellcomePage />} />
+          <Route path="*" element={<WelcomePage />} />
+          <Route exact path="/" element={<WelcomePage />} />
           <Route exact path="/login" element={<LoginPage />} />
           <Route exact path="/register" element={<Register />} />
         </Route>
