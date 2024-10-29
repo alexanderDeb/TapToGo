@@ -1,51 +1,70 @@
-import React from "react";
+import {React, useState, useEffect} from "react";
+import { useNavigate } from "react-router-dom";
+
 
 export default function LoginPage() {
+
+  let navigate = useNavigate();
+  const [Email, setEmail] = useState("");
+  const [Password, setPassword] = useState("");
+
+  const handlerSubmit = () => {
+    sessionStorage.setItem("email", Email);
+    sessionStorage.setItem("password", Password);
+    navigate("/dashboard", { replace: true });
+  };
+
+
+
+  useEffect(() => {
+    document.title = "Inicio de sesión";
+  }, []);
+
   return (
-    <div className="hero bg-base-200 min-h-screen">
-      <div className="hero-content flex-col lg:flex-row-reverse">
-        <div className="text-center lg:text-left">
-          <h1 className="text-5xl font-bold">Login now!</h1>
-          <p className="py-6">
-            Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda
-            excepturi exercitationem quasi. In deleniti eaque aut repudiandae et
-            a id nisi.
-          </p>
-        </div>
-        <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
-          <form className="card-body">
-            <div className="form-control">
-              <label className="label">
-                <span className="label-text">Email</span>
-              </label>
-              <input
-                type="email"
-                placeholder="email"
-                className="input input-bordered"
-                required
-              />
-            </div>
-            <div className="form-control">
-              <label className="label">
-                <span className="label-text">Password</span>
-              </label>
-              <input
-                type="password"
-                placeholder="password"
-                className="input input-bordered"
-                required
-              />
-              <label className="label">
-                <a href="#" className="label-text-alt link link-hover">
-                  Forgot password?
-                </a>
-              </label>
-            </div>
-            <div className="form-control mt-6">
-              <button className="btn btn-primary">Login</button>
-            </div>
-          </form>
-        </div>
+    <div className="flex items-center justify-center min-h-screen">
+      <div className="w-full max-w-xl p-6 bg-blueForm rounded-lg">
+        <h2 className="text-center text-2xl text-base-100 font-bold mb-6">
+          Inicio de sesión
+        </h2>
+
+        <form  onSubmit={handlerSubmit} className="space-y-10">
+          <div className="mb-4">
+            <label
+              className="block text-left text-base-100"
+            >
+              Correo electrónico
+            </label>
+            <input
+              type="email"
+              id="email"
+              onChange={(e) => setEmail(e.target.value)}
+              className="input input-bordered w-full"
+              required
+            />
+          </div>
+
+          <div className="mb-4">
+            <label
+              className="block text-left text-base-100"
+            >
+              Contraseña 
+            </label>
+            <input
+              type="password"
+              id="password"
+              onChange={(e) => setPassword(e.target.value)}
+              className="input input-bordered w-full"
+              required
+            />
+          </div>
+
+          <button
+            type="submit"
+            className="w-full mt-4 py-2 px-4 rounded-full bg-BTN text-base-100 font-bold rounded-md  hover:bg-BTNHover transition duration-200"
+          >
+            Ingresar
+          </button>
+        </form>
       </div>
     </div>
   );
