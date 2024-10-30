@@ -15,10 +15,10 @@ export default function Navigation() {
           <Route path="*" element={<WelcomePage />} />
           <Route exact path="/" element={<WelcomePage />} />
           <Route exact path="/login" element={<LoginPage />} />
-          <Route exact path="/register" element={<Register />} />
         </Route>
 
         <Route element={<ProtectedRoutes />}>
+          <Route exact path="/register" element={<Register />} />
           <Route exact path="/dashboard" element={<Dashboard />} />
         </Route>
       </Routes>

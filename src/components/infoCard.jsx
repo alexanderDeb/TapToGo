@@ -2,9 +2,9 @@ import React from "react";
 
 export default function InfoCard({ image, title, description }) {
   return (
-    <div className="card bg-base-100 w-full md:w-1/4 shadow-xl">
+    <div className="flex flex-col rounded-lg bg-base-100 w-full h-full lg:w-1/4 shadow-xl">
       <figure>
-        <img src={image} alt="Shoes" />
+        <img src={image} alt="Shoes" className=" rounded-t-lg"/>
       </figure>
       <div className="card-body">
         <h2 className="card-title text-blueForm">{title}</h2>

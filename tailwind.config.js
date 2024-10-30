@@ -10,7 +10,9 @@ module.exports = {
     colors: {
       blueForm:"#0367A6",
       blueSecond:"#4EB1D9",
+      blueSecondHover:"#1D95C6",
       BTN:"#32A65A",
+      white:"#ffff",
       BTNHover:"#228A3C",
       slate_50:"#f8fafc",
       slate_100:"#f1f5f9",
