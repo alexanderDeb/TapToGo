@@ -12,13 +12,14 @@ export default function Hero() {
       <div className="hero-overlay bg-opacity-60"></div>
       <div className="hero-content text-neutral-content text-center">
         <div className="flex flex-col max-w-md items-center">
-          <h1 className="mb-5 text-5xl font-bold">Hello there</h1>
+          <h1 className="mb-5 text-5xl font-bold">¡Bienvenido!</h1>
           <p className="mb-5">
-            Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda
-            excepturi exercitationem quasi. In deleniti eaque aut repudiandae et
-            a id nisi.
+            Conoce las últimas noticias sobre el MIO y mantente informado de
+            todo lo que sucede en el sistema de transporte masivo de la ciudad.
           </p>
-          <button className="flex justify-center items-center bg-blueForm rounded-xl h-12 w-32 hover:bg-blueSecond transition-colors duration-300">Get Started</button>
+          <button className="flex justify-center items-center bg-BTN rounded-xl h-12 w-32 hover:bg-BTNHover transition-colors duration-300">
+            Empezar
+          </button>
         </div>
       </div>
     </div>

@@ -1,6 +1,5 @@
-import React from "react";
-import Navbar from "../components/navbar";
-import Bus from "../assets/Bus.png";
+import { React, useEffect } from "react";import Navbar from "../components/navbar";
+import celular from "../assets/celular.png";
 import InfoCard from "../components/infoCard";
 import Footer from "../components/footer";
 import Card1 from "../assets/Card1.png";
@@ -9,6 +8,10 @@ import Card3 from "../assets/Card3.jpg";
 import Hero from "../components/hero";
 
 export default function WelcomePage() {
+  useEffect(() => {
+    document.title = "Home";
+  }, []);
+  
   return (
     <div className="flex flex-col bg-slate_100">
       <Navbar />
@@ -16,7 +19,9 @@ export default function WelcomePage() {
       <div className="flex flex-col h-screen space-y-40 pt-40">
         <div className="flex flex-col justify-center items-center space-y-6">
           <h1 className="text-blueForm font-extrabold text-3xl">Noticias</h1>
-          <h1 className="text-xl">Enterate de las ultimas noticias</h1>
+          <h1 className="text-xl">
+            ¡Entérate de las últimas noticias sobre el MIO!
+          </h1>
         </div>
         <div className="flex flex-col md:flex-row space-y-4 md:space-y-0 px-6 justify-between items-center md:px-32">
           <InfoCard
@@ -39,19 +44,22 @@ export default function WelcomePage() {
       <div className="flex flex-col h-screen">
         <div className="flex flex-row h-full w-full justify-between items-center px-20">
           <div className="flex w-1/2 h-full justify-center items-center">
-            <div className=" flex h-1/2 w-1/2 justify-center items-center">
-              <img src={Bus} alt="..." />
+            <div className=" flex h-1/2 max-w-xs justify-center items-center">
+              <img src={celular} alt="..." className="w-3/4 h-auto"/>
             </div>
           </div>
           <div className="flex w-1/2 h-full justify-center items-center">
             <div className="">
-              <h1 className="text-2xl">Eres usuario de nuestro trasporte?</h1>
+              <h1 className="text-2xl font-semibold">
+                ¿Eres usuario de nuestro trasporte?
+              </h1>
               <p>
-                Presiona el siguiente boton para hacer la descarga de nuestro
-                aplicativo movil{" "}
+                Presiona el botón a continuación para descargar nuestro
+                aplicativo móvil y optimiza tu experiencia en el MIO con un solo
+                toque.{" "}
               </p>
-              <div className="flex h-full w-full justify-end pt-10">
-                <button className="flex justify-center items-center text-white h-12 w-36 bg-blueForm rounded-lg hover:bg-blueSecond">
+              <div className="flex flex-col items-center pt-5 space-y-2">
+                <button className="flex justify-center items-center  text-white h-12 w-36 bg-blueForm rounded-lg hover:bg-blueSecond">
                   Descarga aqui
                 </button>
               </div>
