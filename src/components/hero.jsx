@@ -17,7 +17,7 @@ export default function Hero() {
             Conoce las últimas noticias sobre el MIO y mantente informado de
             todo lo que sucede en el sistema de transporte masivo de la ciudad.
           </p>
-          <button className="flex justify-center items-center bg-BTN rounded-xl h-12 w-32 hover:bg-BTNHover transition-colors duration-300">
+          <button className="flex justify-center items-center bg-BTN rounded-xl h-12 w-32 hover:bg-BTNHover transition-colors duration-300 text-white font-bold">
             Empezar
           </button>
         </div>

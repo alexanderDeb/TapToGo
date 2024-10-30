@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { FaGripLines, FaRegUser, FaPowerOff } from "react-icons/fa";
+import { FaGripLines, FaRegUser } from "react-icons/fa";
+import { IoIosLogOut } from "react-icons/io";
 import { IoHomeOutline } from "react-icons/io5";
 
 export default function Drawer() {
@@ -9,7 +10,7 @@ export default function Drawer() {
       {isOpen === 0 ? (
         <div className="flex flex-col w-1/6 h-full bg-blueForm">
           <div className="flex flex-row h-1/3 w-full justify-between items-start px-8 pt-4">
-            <h1 className="text-white font-bold text-2xl">TapToGo</h1>
+            <h1 className="text-white font-bold text-xl">TapToGo</h1>
             <button
               className="text-white font-extrabold text-2xl"
               onClick={() => {
@@ -54,7 +55,7 @@ export default function Drawer() {
                 sessionStorage.clear();
               }}
             >
-              <FaPowerOff size={24} className="fill-current" />
+              < IoIosLogOut size={24} className="fill-current" />
             </button>
           </div>
         </div>

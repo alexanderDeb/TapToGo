@@ -28,15 +28,15 @@ export default function Dashboard() {
 
   const columns = [
     {
-      name: "Nombre",
+      name: "Nombre completo",
       selector: (row) => row.name,
     },
     {
-      name: "Correo electronico",
+      name: "Correo electrónico",
       selector: (row) => row.email,
     },
     {
-      name: "Numero de tarjeta",
+      name: "Número de tarjeta",
       selector: (row) => row.rfid,
     },
     {
@@ -44,13 +44,13 @@ export default function Dashboard() {
       selector: (row) => row.saldo,
     },
     {
-      name: "status",
+      name: "Estado",
       selector: (row) => row.status,
       cell: (row) =>
         row.status === true ? (
-          <p className="text-success">activo</p>
+          <p className="text-success">Activo</p>
         ) : (
-          <p className="text-error">inactivo</p>
+          <p className="text-error">Inactivo</p>
         ),
     },
   ];

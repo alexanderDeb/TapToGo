@@ -59,9 +59,9 @@ export default function WelcomePage() {
                 toque.{" "}
               </p>
               <div className="flex flex-col items-center pt-5 space-y-2">
-                <button className="flex justify-center items-center  text-white h-12 w-36 bg-blueForm rounded-lg hover:bg-blueSecond">
+                <a href= "https://expo.dev/artifacts/eas/xAtnZQdjk9J9ctRRshCHT6.apk" className="flex justify-center items-center  text-white h-12 w-36 bg-blueForm rounded-lg hover:bg-blueSecond">
                   Descarga aqui
-                </button>
+                </a>
               </div>
             </div>
           </div>
