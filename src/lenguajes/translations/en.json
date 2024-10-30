@@ -1,0 +1,53 @@
+{
+  "Register": {
+    "Title": "Welcome",
+    "SubTitle": "Register",
+    "Paragraph": "Enter the requested information in the established fields to generate a record with your data and be able to access the platform.",
+    "PlaceHolderName": "Name",
+    "PlaceHolderEmail": "Email",
+    "PlaceHolderNoTarjet": "Card Number",
+    "PlaceHolderPassword": "Password",
+    "PlaceHolderRepeatPassword": "Repeat password",
+    "Button": "Register",
+    "Question": "Do you have an account?",
+    "Link": "enter here"
+  },
+  "Login": {
+    "Button": "login",
+    "Question": "Don't have an account?",
+    "Link": "enter here",
+    "PlaceHolder": "Email"
+  },
+  "BottomNavigator": {
+    "Home": "Home",
+    "Recharge": "Recharge"
+  },
+  "Auth": {
+    "Title": "Enter your password",
+    "SubTitle": "We have no doubt that it is you....",
+    "SubTitle2": "But it is better to confirm ;)",
+    "Question": "Did you forget?"
+  },
+  "Header": {
+    "Greet": "Hi "
+  },
+  "Home": {
+    "Title": "Cards",
+    "SubTitle": "Transactions"
+  },
+  "Recharge": {
+    "FirstText": "Pay method",
+    "SecondText": "amount to recharge",
+    "Button": "Recharge",
+    "Paragraph": "Select the card you want to recharge along with the payment method you will use and the amount you will recharge.",
+    "Title": "Recharge your card",
+    "Select": "Select the type of card",
+    "SelectOption1": "credit card",
+    "SelectOption2": "debit card",
+    "LabelMount": "How much?",
+    "Label1":"Name of cardholder",
+    "Label2":"card number",
+    "Label3":"month",
+    "Label4":"year"
+  }
+}

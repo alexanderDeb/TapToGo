@@ -1,0 +1,53 @@
+{
+  "Register": {
+    "Title": "Bienvenido",
+    "SubTitle": "Registrate",
+    "Paragraph": "Ingresa la informacion solicitada en los campos establecidos para poder generar un registro con tus datos y puedas ingresar a la plataforma.",
+    "PlaceHolderName": "Nombre",
+    "PlaceHolderEmail": "Correo electronico",
+    "PlaceHolderNoTarjet": "Numero de tarjeta",
+    "PlaceHolderPassword": "Contraseña",
+    "PlaceHolderRepeatPassword": "Repepetir contraseña",
+    "Button": "Registrarse",
+    "Question": "Ya tienes una cuenta?",
+    "Link": "ingresa aqui"
+  },
+  "Login": {
+    "Button": "Ingresar",
+    "Question": "No tienes una cuenta?",
+    "Link": "ingresa aqui",
+    "PlaceHolder": "Correo electronico"
+  },
+  "BottomNavigator": {
+    "Home": "Inicio",
+    "Recharge": "Recargas"
+  },
+  "Auth": {
+    "Title": "Escribe tu clave",
+    "SubTitle": "No dudamos que seas tu....",
+    "SubTitle2": "Pero es mejor confirmar ;)",
+    "Question": "Se te olvido?"
+  },
+  "Header": {
+    "Greet": "Hola "
+  },
+  "Home": {
+    "Title": "Tarjetas",
+    "SubTitle": "Transacciones"
+  },
+  "Recharge": {
+    "FirstText": "Metodo de pago",
+    "SecondText": "Monto a recargar",
+    "Button": "Recargar",
+    "Paragraph": "Selecciona la tarjeta que quieres recargar junto con el metodo de pago que utilizaras y el monto por el cual harás la recarga.",
+    "Title": "Recarga tu tarjeta",
+    "Select": "Selecciona el tipo de tarjeta",
+    "SelectOption1": "Tarjeta de credito",
+    "SelectOption2": "Tarjeta de debito",
+    "LabelMount": "Cuanto?",
+    "Label1":"Nombre del titular de la tarjeta",
+    "Label2":"Numero de la tarjeta",
+    "Label3":"Mes",
+    "Label4":"Año"
+  }
+}
