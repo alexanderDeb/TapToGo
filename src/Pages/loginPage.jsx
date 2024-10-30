@@ -1,5 +1,6 @@
 import { React, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 
 export default function LoginPage() {
   let navigate = useNavigate();
@@ -18,18 +19,36 @@ export default function LoginPage() {
         body: JSON.stringify(AuthData),
       });
       if (response.status === 201) {
-        console.log("funciono");
+        Toast.fire({
+          icon: "success",
+          title: "Inicio de sesion exitoso",
+        });
         sessionStorage.setItem("email", Email);
         sessionStorage.setItem("password", Password);
         navigate("/dashboard", { replace: true });
       } else {
-        console.log("Error");
+        Toast.fire({
+          icon: "error",
+          title: "Hubo un error al iniciar sesion",
+        });
       }
     } catch (error) {
       console.error(error);
       return 0;
     }
   };
+
+  const Toast = Swal.mixin({
+    toast: true,
+    position: "top-end",
+    showConfirmButton: false,
+    timer: 3000,
+    timerProgressBar: true,
+    didOpen: (toast) => {
+      toast.onmouseenter = Swal.stopTimer;
+      toast.onmouseleave = Swal.resumeTimer;
+    },
+  });
 
   useEffect(() => {
     document.title = "Inicio de sesión";

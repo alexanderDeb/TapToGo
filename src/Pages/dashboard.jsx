@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import DataTable from "react-data-table-component";
+import Drawer from "../components/drawer";
 
 export default function Dashboard() {
   const [info, setInfo] = useState("");
@@ -45,14 +46,18 @@ export default function Dashboard() {
     {
       name: "status",
       selector: (row) => row.status,
-      cell: (row) => (row.status == true ? <p className="text-success">activo</p> : <p className="text-error">inactivo</p>),
+      cell: (row) =>
+        row.status === true ? (
+          <p className="text-success">activo</p>
+        ) : (
+          <p className="text-error">inactivo</p>
+        ),
     },
   ];
 
-  const activeOrInactive = [{ when: (row) => row.status == true }];
-
   return (
     <div>
+      <Drawer />
       <div className="flex flex-col items-center justify-center h-screen">
         <div className="flex flex-col h-4/5 w-5/6 justify-center items-center">
           {info ? (
