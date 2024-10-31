@@ -1,4 +1,5 @@
 import { React, useState } from "react";
+import Drawer from "../components/drawer";
 // import { useNavigate } from "react-router-dom";
 
 //Estados del formulario
@@ -52,6 +53,7 @@ export default function Register() {
   };
   return (
     <div className="min-h-screen flex items-center justify-center ">
+      <Drawer />
       {/* w-full ocupara todo el espacio horizontal del contenedor */}
       {/* max-w-xl ancho máximo para el elemento */}
 

@@ -5,6 +5,7 @@ import Dashboard from "../Pages/dashboard";
 import Register from "../Pages/registerPage";
 import IsAuthenticated from "./isAuthenticated";
 import ProtectedRoutes from "./protectedRoutes";
+import Stadistics from "../Pages/stadistics";
 
 export default function Navigation() {
   return (
@@ -20,6 +21,7 @@ export default function Navigation() {
         <Route element={<ProtectedRoutes />}>
           <Route exact path="/register" element={<Register />} />
           <Route exact path="/dashboard" element={<Dashboard />} />
+          <Route exact path="/stadistics" element={<Stadistics />} />
         </Route>
       </Routes>
     </Router>

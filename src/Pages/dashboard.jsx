@@ -59,7 +59,10 @@ export default function Dashboard() {
     <div>
       <Drawer />
       <div className="flex flex-col items-center justify-center h-screen">
-        <div className="flex flex-col h-4/5 w-5/6 justify-center items-center">
+        <div className="w-3/5">
+          <h1 className="text-start text-2xl font-bold text-blueForm">Usuarios</h1>
+        </div>
+        <div className="flex flex-col h-3/5 w-4/6 justify-center items-center p-4 shadow-xl">
           {info ? (
             <DataTable columns={columns} data={info} pagination />
           ) : (
