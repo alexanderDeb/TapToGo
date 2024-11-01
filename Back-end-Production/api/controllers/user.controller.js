@@ -126,7 +126,7 @@ export const spendSaldo = async (req, res) => {
 };
 
 export const updateUser = async (req, res) => {
-  const query = { rfid: req.params.email };
+  const query = { email: req.params.email };
   const { status } = req.body;
   const userquery = await User.findOne(query);
   const userStructure = {
@@ -138,7 +138,7 @@ export const updateUser = async (req, res) => {
     status: status,
     role: userquery.role,
   };
-  const user = await User.findByIdAndUpdate(req.params.id, userStructure, {
+  const user = await User.findByIdAndUpdate(userquery._id, userStructure, {
     new: true,
   });
   if (!user) return res.status(404).json({ message: "Usuario no encontrado" });
