@@ -10,6 +10,7 @@ const userSchema = new mongoose.Schema(
     saldo: { type: Number, require: true, default: "0" },
     rfid: { type: String, require: true },
     role: { type: String, require: true },
+    transactions: { type: [{ type: Object }] },
   },
   { timestamps: true, versionKey: false }
 );

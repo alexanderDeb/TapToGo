@@ -38,7 +38,7 @@ export const loginUser = async (req, res) => {
       },
     });
   } catch (error) {
-    return res.status(500).json({ message: "Error al iniciar sesión", error });
+    return res.status(400).json({ message: "Error al iniciar sesión", error });
   }
 };
 
@@ -57,21 +57,22 @@ export const getUser = async (req, res) => {
 export const updateUserSaldo = async (req, res) => {
   const query = { email: req.params.email };
   const user = await User.findOne(query);
-  const userSaldo = {
-    name: user.name,
-    email: user.email,
-    password: user.password,
-    rfid: user.rfid,
-    saldo: user.saldo + req.body.saldo,
-    status: user.status,
-    role: user.role,
-  };
-  const userEdit = await User.findOneAndUpdate(query, userSaldo, {
-    new: true,
-  });
-  if (!userEdit)
-    return res.status(404).json({ message: "Usuario no encontrado" });
-  res.json(userEdit);
+  if (user) {
+    // Actualiza el saldo
+    user.saldo += req.body.saldo;
+
+    // Agrega la nueva transacción
+    user.transactions.push({ Recarga: req.body.saldo });
+
+    // Guarda los cambios en la base de datos
+    await user.save();
+
+    console.log(req.body.saldo);
+    console.log(user.transactions);
+    res.status(200).json({ message: "Se actualizo el saldo exitosamente" });
+  } else {
+    res.status(400).json({ message: "Hubo un error al actualizar el saldo" });
+  }
 };
 
 export const createUser = async (req, res) => {
@@ -97,31 +98,36 @@ export const createUser = async (req, res) => {
     const saveUser = await NewUser.save();
     res.json(saveUser);
   } catch (err) {
-    res.status(500).json({ message: "Error al crear usuario", err });
+    res.status(400).json({ message: "Error al crear usuario", err });
   }
 };
 
 export const spendSaldo = async (req, res) => {
-  const query = { rfid: req.params.rfid };
+  const query = { email: req.params.email };
   const user = await User.findOne(query);
-  const userSaldo = {
-    name: user.name,
-    email: user.email,
-    password: user.password,
-    rfid: user.rfid,
-    saldo: user.saldo - 2700,
-    status: user.status,
-    role: user.role,
-  };
-  if (userSaldo.saldo > -2700) {
-    const userEdit = await User.findOneAndUpdate(query, userSaldo, {
-      new: true,
-    });
-    if (!userEdit)
-      return res.status(404).json({ message: "Usuario no encontrado" });
-    res.json(userEdit);
+
+  if (user) {
+    // Verifica si el saldo es suficiente para restar 2700
+    if (user.saldo - 2700 >= -2700) {
+      // Resta 2700 al saldo
+      user.saldo -= 2700;
+
+      // Agrega la nueva transacción
+      user.transactions.push({ Descuento: 2700 });
+
+      // Guarda los cambios en la base de datos
+      await user.save();
+
+      console.log("Saldo actualizado:", user.saldo);
+      console.log("Transacciones:", user.transactions);
+      res.status(200).json({ message: "Se desconto el saldo" });
+    } else {
+      // Responde con un mensaje de error si no hay saldo suficiente
+      return res.status(400).json({ message: "No hay saldo suficiente" });
+    }
   } else {
-    res.send("Te quedaste sin saldo!!");
+    console.log("Usuario no encontrado");
+    return res.json({ message: "Usuario no encontrado" });
   }
 };
 
