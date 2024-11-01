@@ -1,8 +1,9 @@
 import React, { useState } from "react";
-import { FaGripLines, FaRegUser, FaPowerOff } from "react-icons/fa";
+import { FaGripLines, FaRegUser } from "react-icons/fa";
 import { IoHomeOutline } from "react-icons/io5";
 import { useNavigate } from "react-router-dom";
 import { IoLogOutOutline } from "react-icons/io5";
+import { FaChartBar } from "react-icons/fa";
 
 export default function Drawer() {
   const [isOpen, setIsOpen] = useState(1);
@@ -48,12 +49,25 @@ export default function Drawer() {
                 Registro
               </button>
             </div>
+            <div className="flex flex-col justify-center items-start">
+              <button
+                onClick={() => {
+                  setIsOpen(0);
+                  navigate("/stadistics", { replace: true });
+                }}
+                className="flex items-center justify-start text-white gap-x-4 text-2xl hover:bg-blueSecondHover w-full h-14 px-2 rounded-xl"
+              >
+                <FaChartBar size={24} className="fill-current" />
+                Registro
+              </button>
+            </div>
           </div>
           <div className="flex flex-col h-1/3 w-full justify-end items-center pb-4 px-4">
             <button
               className="flex items-center justify-start text-white gap-x-4 text-2xl hover:bg-blueSecondHover w-full h-14 px-2 rounded-xl"
               onClick={() => {
                 sessionStorage.clear();
+                window.location.reload();
               }}
             >
               <IoLogOutOutline size={26} className="fill-current" />
@@ -97,15 +111,28 @@ export default function Drawer() {
                 <FaRegUser size={24} className="fill-current" />
               </button>
             </div>
+            <div className="flex flex-col justify-center items-center">
+              <button
+                onClick={() => {
+                  setIsOpen(0);
+                  navigate("/stadistics", { replace: true });
+                }}
+                className="text-white hover:bg-blueSecondHover p-4 rounded-xl"
+              >
+                {" "}
+                <FaChartBar size={24} className="fill-current" />
+              </button>
+            </div>
           </div>
           <div className="flex flex-col h-1/3 w-full justify-end items-center pb-4">
             <button
               className="text-white hover:bg-blueSecondHover p-4 rounded-xl"
               onClick={() => {
                 sessionStorage.clear();
+                window.location.reload();
               }}
             >
-              <FaPowerOff size={24} className="fill-current" />
+              <IoLogOutOutline size={26} className="fill-current" />
             </button>
           </div>
         </div>

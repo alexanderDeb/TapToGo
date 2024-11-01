@@ -76,8 +76,8 @@ export default function Stadistics() {
               }}
             />
           ) : (
-            <div>
-              <h1>no se cargo la grafica</h1>
+            <div className="flex h-3/4 justify-center items-center">
+              <span className="loading loading-dots loading-lg"></span>
             </div>
           )}
         </div>
