@@ -124,3 +124,23 @@ export const spendSaldo = async (req, res) => {
     res.send("Te quedaste sin saldo!!");
   }
 };
+
+export const updateUser = async (req, res) => {
+  const query = { rfid: req.params.email };
+  const { status } = req.body;
+  const userquery = await User.findOne(query);
+  const userStructure = {
+    name: userquery.name,
+    email: userquery.email,
+    password: userquery.password,
+    rfid: userquery.rfid,
+    saldo: userquery.saldo,
+    status: status,
+    role: userquery.role,
+  };
+  const user = await User.findByIdAndUpdate(req.params.id, userStructure, {
+    new: true,
+  });
+  if (!user) return res.status(404).json({ message: "Usuario no encontrado" });
+  res.json(user);
+};

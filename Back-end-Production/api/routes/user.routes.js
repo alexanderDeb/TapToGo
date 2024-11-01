@@ -6,6 +6,7 @@ import {
   createUser,
   spendSaldo,
   loginUser,
+  updateUser,
 } from "../controllers/user.controller.js";
 
 const router = Router();
@@ -13,6 +14,7 @@ const router = Router();
 router.get("/user", getUsers);
 router.get("/user/:email", getUser);
 router.put("/user/:email", updateUserSaldo);
+router.put("/status/:email", updateUser);
 router.put("/userspend/:rfid", spendSaldo);
 router.post("/user", createUser);
 router.post("/login", loginUser);
