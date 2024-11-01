@@ -1,4 +1,5 @@
-import { React, useEffect } from "react";import Navbar from "../components/navbar";
+import { React, useEffect } from "react";
+import Navbar from "../components/navbar";
 import celular from "../assets/celular.png";
 import InfoCard from "../components/infoCard";
 import Footer from "../components/footer";
@@ -11,7 +12,7 @@ export default function WelcomePage() {
   useEffect(() => {
     document.title = "Home";
   }, []);
-  
+
   return (
     <div className="flex flex-col bg-slate_100">
       <Navbar />
@@ -45,24 +46,24 @@ export default function WelcomePage() {
         <div className="flex flex-row h-full w-full justify-between items-center px-20">
           <div className="flex w-1/2 h-full justify-center items-center">
             <div className=" flex h-1/2 max-w-xs justify-center items-center">
-              <img src={celular} alt="..." className="w-3/4 h-auto"/>
+              <img src={celular} alt="..." className="w-3/4 h-auto" />
             </div>
           </div>
-          <div className="flex w-1/2 h-full justify-center items-center">
-            <div className="">
-              <h1 className="text-2xl font-semibold">
-                ¿Eres usuario de nuestro trasporte?
-              </h1>
-              <p>
-                Presiona el botón a continuación para descargar nuestro
-                aplicativo móvil y optimiza tu experiencia en el MIO con un solo
-                toque.{" "}
-              </p>
-              <div className="flex flex-col items-center pt-5 space-y-2">
-                <a href= "https://expo.dev/artifacts/eas/xAtnZQdjk9J9ctRRshCHT6.apk" className="flex justify-center items-center  text-white h-12 w-36 bg-blueForm rounded-lg hover:bg-blueSecond">
-                  Descarga aqui
-                </a>
-              </div>
+          <div className="flex flex-col w-1/2 h-full justify-center items-start">
+            <h1 className="text-2xl font-semibold">
+              ¿Eres usuario de nuestro trasporte?
+            </h1>
+            <p>
+              Presiona el botón a continuación para descargar nuestro aplicativo
+              móvil y optimiza tu experiencia en el MIO con un solo toque.{" "}
+            </p>
+            <div className="flex flex-col items-center pt-5 space-y-2">
+              <a
+                href="https://expo.dev/artifacts/eas/xAtnZQdjk9J9ctRRshCHT6.apk"
+                className="flex justify-center items-center  text-white h-12 w-36 bg-blueForm rounded-lg hover:bg-blueSecond"
+              >
+                Descarga aqui
+              </a>
             </div>
           </div>
         </div>
