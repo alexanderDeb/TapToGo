@@ -19,6 +19,7 @@ export default function LoginPage() {
         body: JSON.stringify(AuthData),
       });
       if (response.status === 201) {
+        //se esta ejecutando la alerta con un mensaje de acceso
         Toast.fire({
           icon: "success",
           title: "Inicio de sesion exitoso",
@@ -27,6 +28,7 @@ export default function LoginPage() {
         sessionStorage.setItem("password", Password);
         navigate("/dashboard", { replace: true });
       } else {
+        //se esta ejecutando la alerta con un mensaje de error
         Toast.fire({
           icon: "error",
           title: "Hubo un error al iniciar sesion",
@@ -38,6 +40,10 @@ export default function LoginPage() {
     }
   };
 
+  //Se esta utilizando la libreria sweetalert
+
+
+  //Toast es una constante que almacena una alerta del sweetalert
   const Toast = Swal.mixin({
     toast: true,
     position: "top-end",

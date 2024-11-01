@@ -57,7 +57,7 @@ export default function Register() {
       {/* w-full ocupara todo el espacio horizontal del contenedor */}
       {/* max-w-xl ancho máximo para el elemento */}
 
-      <div className="bg-blueForm p-8 rounded-lg shadow-lg w-full max-w-xl">
+      <div className="bg-blueForm p-8 rounded-lg shadow-lg w-full max-w-xl z-20">
         <p className="text-base-100 text-center font-bold mb-4">
           Ingresa los siguientes datos para registrar un administrador o usuario
         </p>

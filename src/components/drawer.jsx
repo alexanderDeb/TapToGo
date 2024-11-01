@@ -9,7 +9,7 @@ export default function Drawer() {
   const [isOpen, setIsOpen] = useState(1);
   let navigate = useNavigate();
   return (
-    <div className="h-screen w-screen absolute z-40 transition duration-150">
+    <div className="h-screen w-screen absolute transition duration-150">
       {isOpen === 0 ? (
         <div className="flex flex-col w-1/6 h-full bg-blueForm">
           <div className="flex flex-row h-1/3 w-full justify-between items-start px-8 pt-4">
@@ -31,7 +31,7 @@ export default function Drawer() {
                   setIsOpen(0);
                   navigate("/dashboard", { replace: true });
                 }}
-                className="flex items-center justify-start text-white gap-x-4 text-2xl hover:bg-blueSecondHover w-full h-14 px-2 rounded-xl"
+                className="flex items-center justify-start text-white gap-x-4 text-xl hover:bg-blueSecondHover w-full h-14 px-2 rounded-xl"
               >
                 <IoHomeOutline size={24} className="fill-current" />
                 Inicio
@@ -43,7 +43,7 @@ export default function Drawer() {
                   setIsOpen(0);
                   navigate("/register", { replace: true });
                 }}
-                className="flex items-center justify-start text-white gap-x-4 text-2xl hover:bg-blueSecondHover w-full h-14 px-2 rounded-xl"
+                className="flex items-center justify-start text-white gap-x-4 text-xl hover:bg-blueSecondHover w-full h-14 px-2 rounded-xl"
               >
                 <FaRegUser size={24} className="fill-current" />
                 Registro
@@ -55,7 +55,7 @@ export default function Drawer() {
                   setIsOpen(0);
                   navigate("/stadistics", { replace: true });
                 }}
-                className="flex items-center justify-start text-white gap-x-4 text-2xl hover:bg-blueSecondHover w-full h-14 px-2 rounded-xl"
+                className="flex items-center justify-start text-white gap-x-4 text-xl hover:bg-blueSecondHover w-full h-14 px-2 rounded-xl"
               >
                 <FaChartBar size={24} className="fill-current" />
                 Registro

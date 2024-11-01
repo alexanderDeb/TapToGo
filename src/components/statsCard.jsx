@@ -8,9 +8,9 @@ export default function StatsCard({ title, value, message, color }) {
         <div className="stat-figure text-primary">
           <FaUser size={24} color={color}/>
         </div>
-        <div className="stat-title">{title}</div>
+        <div className="stat-title font-bold">{title}</div>
         <div className="stat-value">{value}</div>
-        <div className="stat-desc">{message}</div>
+        <div className="stat-desc text-wrap w-60">{message}</div>
       </div>
     </div>
   );

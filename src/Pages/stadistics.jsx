@@ -19,7 +19,6 @@ export default function Stadistics() {
       });
       const data = await response.json();
       setInfo(data);
-      console.log(data);
     } catch (error) {
       console.error(error);
       return 0;
@@ -30,36 +29,67 @@ export default function Stadistics() {
     GetInfo();
   }, []);
 
-  if (info.length !== 0) {
-    info.map((data) => {
-      console.log(data.name);
-    });
-  }
   return (
-    <div className="flex flex-col h-screen w-screen">
+    <div className="flex flex-col h-screen w-screen justify-center items-center">
       <Drawer />
-      <div className="flex flex-col h-full w-full">
-        <div className="flex flex-row h-1/4 w-full justify-center items-center gap-8">
-          <StatsCard
-            title="hola"
-            value="77"
-            message="hola mundo"
-            color="#dc2626"
-          />
-          <StatsCard
-            title="hola"
-            value="77"
-            message="hola mundo"
-            color="#dc2626"
-          />
-          <StatsCard
-            title="hola"
-            value="77"
-            message="hola mundo"
-            color="#dc2626"
-          />
+      <div className="flex flex-col justify-center items-center h-full w-3/5 gap-y-20 z-20">
+        <div className="flex flex-row  w-full justify-center items-center gap-8">
+          {info.length !== 0 ? (
+            <StatsCard
+              title="Usuarios registrados"
+              value={info.length}
+              message="Cantidad de usuarios registrados actualmente en la aplicacion movil"
+              color="#0284c7"
+            />
+          ) : (
+            <StatsCard
+              title="Error"
+              value="0"
+              message="Error"
+              color="#dc2626"
+            />
+          )}
+          {info.length !== 0 ? (
+            <StatsCard
+              title="Usuarios activos"
+              value={
+                info.filter((e) => {
+                  return e.status === true;
+                }).length
+              }
+              message="Cantidad de usuarios activos en la plataforma"
+              color="#65a30d"
+            />
+          ) : (
+            <StatsCard
+              title="hola"
+              value="77"
+              message="hola mundo"
+              color="#dc2626"
+            />
+          )}
+          {info.length !== 0 ? (
+            <StatsCard
+              title="Usuarios inactivos"
+              value={
+                info.filter((e) => {
+                  return e.status === false;
+                }).length
+              }
+              message="Cantidad de usuarios inactivos dentro de la plataforma"
+              color="#dc2626"
+            />
+          ) : (
+            <StatsCard
+              title="hola"
+              value="77"
+              message="hola mundo"
+              color="#dc2626"
+            />
+          )}
         </div>
-        <div className="flex h-3/4 justify-center items-center py-20">
+        <div className="flex flex-col h-full w-full justify-center items-center">
+        
           {info.length !== 0 ? (
             <Line
               data={{
@@ -70,7 +100,7 @@ export default function Stadistics() {
                     data: info.map((data) => data.saldo),
                     fill: false,
                     borderColor: "rgb(75, 192, 192)",
-                    tension: 0.1,
+                    tension: 0.2,
                   },
                 ],
               }}
