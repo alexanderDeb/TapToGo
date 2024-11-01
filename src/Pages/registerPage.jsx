@@ -7,7 +7,7 @@ export default function Register() {
   // let navigate = useNavigate();
   const [Name, setName] = useState("");
   const [Email, setEmail] = useState("");
-  const [Role, setRole] = useState("");
+  const [Role, setRole] = useState("ADMIN");
   const [Status, setStatus] = useState(true);
   const [Password, setPassword] = useState("");
   const [ConfirmPassword, setConfirmPassword] = useState("");
@@ -93,7 +93,7 @@ export default function Register() {
               <select
                 value={Role}
                 onChange={(e) => setRole(e.target.value)}
-                required
+                disabled
                 className="input input-bordered w-full"
               >
                 <option value="" disabled>

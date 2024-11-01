@@ -32,8 +32,8 @@ export default function Stadistics() {
   return (
     <div className="flex flex-col h-screen w-screen justify-center items-center">
       <Drawer />
-      <div className="flex flex-col justify-center items-center h-full w-3/5 gap-y-20 z-20">
-        <div className="flex flex-row  w-full justify-center items-center gap-8">
+      <div className="flex flex-col justify-center items-center h-full w-3/5 gap-y-20 z-20 py-10">
+        <div className="flex flex-col lg:flex-row  w-full justify-center items-center gap-8">
           {info.length !== 0 ? (
             <StatsCard
               title="Usuarios registrados"

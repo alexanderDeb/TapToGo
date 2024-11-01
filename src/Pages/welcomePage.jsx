@@ -16,7 +16,7 @@ export default function WelcomePage() {
     <div className="flex flex-col bg-slate_100">
       <Navbar />
       <Hero />
-      <div className="flex flex-col h-screen space-y-40 pt-40">
+      <div className="flex flex-col h-screen space-y-40 pt-40" id="Noticias">
         <div className="flex flex-col justify-center items-center space-y-6">
           <h1 className="text-blueForm font-extrabold text-3xl">Noticias</h1>
           <h1 className="text-xl">

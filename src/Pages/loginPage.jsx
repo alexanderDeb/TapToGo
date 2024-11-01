@@ -11,14 +11,14 @@ export default function LoginPage() {
     e.preventDefault();
     const AuthData = { email: Email, password: Password };
     try {
-      const response = await fetch(`https://rfidtaptogo.vercel.app/api/login`, {
+      const response = await fetch(`https://rfidtaptogo.vercel.app/api/admin/login`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify(AuthData),
       });
-      if (response.status === 201) {
+      if (response.status === 200) {
         //se esta ejecutando la alerta con un mensaje de acceso
         Toast.fire({
           icon: "success",

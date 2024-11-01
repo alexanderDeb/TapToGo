@@ -3,7 +3,7 @@ import { FaUser } from "react-icons/fa";
 
 export default function StatsCard({ title, value, message, color }) {
   return (
-    <div className="stats shadow">
+    <div className="rounded-xl shadow w-80 ">
       <div className="stat">
         <div className="stat-figure text-primary">
           <FaUser size={24} color={color}/>

@@ -3,7 +3,8 @@ import { FaGripLines, FaRegUser } from "react-icons/fa";
 import { IoHomeOutline } from "react-icons/io5";
 import { useNavigate } from "react-router-dom";
 import { IoLogOutOutline } from "react-icons/io5";
-import { FaChartBar } from "react-icons/fa";
+import { FaChartLine } from "react-icons/fa";
+import { IoIosCloseCircleOutline } from "react-icons/io";
 
 export default function Drawer() {
   const [isOpen, setIsOpen] = useState(1);
@@ -15,12 +16,12 @@ export default function Drawer() {
           <div className="flex flex-row h-1/3 w-full justify-between items-start px-8 pt-4">
             <h1 className="text-white font-bold text-xl">TapToGo</h1>
             <button
-              className="text-white font-extrabold text-2xl"
+              className="text-white"
               onClick={() => {
                 setIsOpen(1);
               }}
             >
-              X
+             <IoIosCloseCircleOutline size={26}/>
             </button>
           </div>
 
@@ -57,20 +58,20 @@ export default function Drawer() {
                 }}
                 className="flex items-center justify-start text-white gap-x-4 text-xl hover:bg-blueSecondHover w-full h-14 px-2 rounded-xl"
               >
-                <FaChartBar size={24} className="fill-current" />
-                Registro
+                <FaChartLine size={24} className="fill-current" />
+                Estadisticas
               </button>
             </div>
           </div>
           <div className="flex flex-col h-1/3 w-full justify-end items-center pb-4 px-4">
             <button
-              className="flex items-center justify-start text-white gap-x-4 text-2xl hover:bg-blueSecondHover w-full h-14 px-2 rounded-xl"
+              className="flex items-center justify-start text-white gap-x-4 text-xl hover:bg-blueSecondHover w-full h-14 px-2 rounded-xl"
               onClick={() => {
                 sessionStorage.clear();
                 window.location.reload();
               }}
             >
-              <IoLogOutOutline size={26} className="fill-current" />
+              <IoLogOutOutline size={24} className="fill-current" />
               Cerrar sesion
             </button>
           </div>
@@ -120,7 +121,7 @@ export default function Drawer() {
                 className="text-white hover:bg-blueSecondHover p-4 rounded-xl"
               >
                 {" "}
-                <FaChartBar size={24} className="fill-current" />
+                <FaChartLine size={24} className="fill-current" />
               </button>
             </div>
           </div>
