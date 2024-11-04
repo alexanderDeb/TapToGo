@@ -16,7 +16,7 @@
         }
       ]
     ],
-    "name": "taptogo",
+    "name": "TapToGo",
     "slug": "taptogo",
     "experiments": {
       "typedRoutes": true
@@ -24,10 +24,17 @@
     "extra": {
       "eas": {
         "projectId": "4829dad1-01fc-4b59-bc25-b8f983a3a998"
-      }
+      },
+      "googleMapsApiKey": "AIzaSyBfqW73eITvhrGMXh8MoGw-KLBCEIN7QEk"
     },
     "android": {
-      "package": "com.estebarquito25.taptogo"
+      "package": "com.estebarquito25.taptogo",
+      "permissions": ["ACCESS_FINE_LOCATION", "ACCESS_COARSE_LOCATION"],
+      "config": {
+        "googleMaps": {
+          "apiKey": "AIzaSyBfqW73eITvhrGMXh8MoGw-KLBCEIN7QEk"
+        }
+      }
     }
   }
 }

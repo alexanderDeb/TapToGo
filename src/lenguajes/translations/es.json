@@ -20,7 +20,8 @@
   },
   "BottomNavigator": {
     "Home": "Inicio",
-    "Recharge": "Recargas"
+    "Recharge": "Recargas",
+    "Maps":"Mapas"
   },
   "Auth": {
     "Title": "Escribe tu clave",

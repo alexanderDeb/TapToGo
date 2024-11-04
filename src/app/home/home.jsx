@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useContext } from "react";
 import { userContext } from "../../context/userContext";
-import { ImageBackground, Text, View, Image } from "react-native";
+import { ImageBackground, Text, View, Image, ScrollView } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import LenguajeButtons from "../../components/lenguajeButtons";
 import Header from "../../components/header";
@@ -42,10 +42,10 @@ const HomePage = () => {
       <LenguajeButtons />
       <Header />
       <View className="flex h-full w-full">
-        <View className="h-1/5 w-full justify-end pl-12 pb-8">
+        <View className="h-1/6 w-full justify-end pl-12 pb-8">
           <Text className="text-lg font-bold">{t("Home.Title")}</Text>
         </View>
-        <View className="flex h-1/5 items-center justify-center">
+        <View className="flex h-1/6 items-center justify-center">
           <View className="h-full w-4/5 rounded-2xl">
             <ImageBackground
               source={Card}
@@ -71,25 +71,45 @@ const HomePage = () => {
             </ImageBackground>
           </View>
         </View>
-        <View className="h-3/5 px-10 pt-12 gap-y-10">
+        <View className="h-3/6 px-10 pt-12 gap-y-10">
           <View className="h-auto">
             <Text className="font-bold text-xl">{t("Home.SubTitle")}</Text>
           </View>
-          <View className="h-auto px-2 gap-y-4">
-            <Text className="text-gray-400 px-1 text-sm">hoy</Text>
-            <TransactionsCard
-              title="Recarga en Universidades"
-              price="15,000"
-              date="Nov 21, 4:00 PM"
-              state="true"
-            />
-            <TransactionsCard
-              title="Abordo en Universidades"
-              price="2,000"
-              date="Nov 21, 3:57 PM"
-              state="false"
-            />
-          </View>
+          {info.length != 0 ? (
+            <ScrollView className="h-auto px-2">
+              <View className="flex flex-col h-full w-full gap-y-4 px-4">
+                {info.transactions.map((x, index) => {
+                  let tipoTransaccion;
+                  let monto;
+                  let status;
+
+                  if (x.Recarga) {
+                    tipoTransaccion = "Recarga en la aplicación";
+                    monto = x.Recarga;
+                    status = true;
+                  } else if (x.Descuento) {
+                    tipoTransaccion = "Pago en estación";
+                    monto = x.Descuento;
+                    status = false;
+                  }
+
+                  return (
+                    <TransactionsCard
+                      key={index} // Importante: Agrega una key única para cada elemento del map
+                      title={tipoTransaccion}
+                      price={monto}
+                      date={info.updatedAt} // Se esta agarrando la fecha de actualizacion
+                      state={status}
+                    />
+                  );
+                })}
+              </View>
+            </ScrollView>
+          ) : (
+            <View>
+              <Text>No hay historial todavia</Text>
+            </View>
+          )}
         </View>
       </View>
     </View>

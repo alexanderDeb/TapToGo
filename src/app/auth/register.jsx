@@ -49,11 +49,13 @@ const RegisterPage = () => {
               placeholder={t("Register.PlaceHolderPassword")}
               onChangeText={(value) => setPassword(value)}
               className="w-full h-16 border border-gray-300 rounded-2xl p-4"
+              secureTextEntry={true}
             />
             <TextInput
               placeholder={t("Register.PlaceHolderRepeatPassword")}
               onChangeText={(value) => setRepPassword(value)}
               className="w-full h-16 border border-gray-300 rounded-2xl p-4"
+              secureTextEntry={true}
             />
             <View></View>
             <View></View>
@@ -74,7 +76,6 @@ const RegisterPage = () => {
                 status: true,
                 role:"USER"
               };
-              console.log("Entro")
               if (password == repPassword) {
                 try {
                   const response = await fetch(
@@ -88,7 +89,7 @@ const RegisterPage = () => {
                     }
                   );
                   const Response = await response.json();
-                  if (response.status == 200) {
+                  if (response.status === 200) {
                     Alert.alert(
                       "Registrado",
                       "Se creo exitosamente el usuario, puedes ahora ingresar con tsu credenciales respectivas",

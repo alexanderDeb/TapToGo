@@ -17,16 +17,14 @@ const RechargePage = () => {
     <View className="flex flex-1">
       <LenguajeButtons />
       <Header />
-      <View className="flex flex-col h-1/5 justify-end items-center pb-4 px-8">
-        <View className="h-auto w-full gap-y-2">
-          <Text className="font-bold text-xl text-sky-600">
-            {t("Recharge.Title")}
-          </Text>
-          <Text>{t("Recharge.Paragraph")}</Text>
-        </View>
-      </View>
-      <View className="h-3/5 w-full px-12 justify-center items-center">
+      <View className="h-4/5 w-full px-12 pt-20">
         <KeyboardAwareScrollView className="h-screen">
+          <View className="h-auto w-full gap-y-2 pb-4">
+            <Text className="font-bold text-xl text-sky-600">
+              {t("Recharge.Title")}
+            </Text>
+            <Text>{t("Recharge.Paragraph")}</Text>
+          </View>
           <View className="h-auto w-full gap-y-3 items-center">
             <TextInput
               editable={false}

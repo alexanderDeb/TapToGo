@@ -5,8 +5,13 @@ import { NavigationContainer } from "@react-navigation/native";
 // screens
 import HomePage from "../app/home/home";
 import RechargePage from "../app/recharge/recharge";
+import Map from "../app/maps/map";
+
 //icons
 import { AntDesign } from "@expo/vector-icons";
+import Entypo from '@expo/vector-icons/Entypo';
+
+//Idiomatizacion
 import { t } from "i18next";
 
 const Tab = createBottomTabNavigator();
@@ -41,6 +46,16 @@ function MyTabs() {
         options={{
           tabBarIcon: ({ color, size }) => (
             <AntDesign name="creditcard" color={color} size={size} />
+          ),
+          unmountOnBlur: true,
+        }}
+      />
+      <Tab.Screen
+        name={t("BottomNavigator.Maps")}
+        component={Map}
+        options={{
+          tabBarIcon: ({ color, size }) => (
+            <Entypo name="map" color={color} size={size} />
           ),
           unmountOnBlur: true,
         }}

@@ -9,7 +9,7 @@ export default function TransactionsCard({ title, date, price, state }) {
         <Text className="text-sm text-gray-400">{date}</Text>
       </View>
       <View>
-        {state === "true" ? (
+        {state === true ? (
           <Text className="text-emerald-500 font-bold">+ ${price}</Text>
         ) : (
           <Text className="text-red-500 font-bold">- ${price}</Text>

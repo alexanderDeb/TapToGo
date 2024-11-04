@@ -20,7 +20,8 @@
   },
   "BottomNavigator": {
     "Home": "Home",
-    "Recharge": "Recharge"
+    "Recharge": "Recharge",
+    "Maps":"Maps"
   },
   "Auth": {
     "Title": "Enter your password",
