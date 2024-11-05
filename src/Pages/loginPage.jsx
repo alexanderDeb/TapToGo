@@ -1,4 +1,5 @@
 import { React, useState, useEffect } from "react";
+import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 
@@ -6,18 +7,22 @@ export default function LoginPage() {
   let navigate = useNavigate();
   const [Email, setEmail] = useState("");
   const [Password, setPassword] = useState("");
+  const {t} = useTranslation();
 
   const handlerSubmit = async (e) => {
     e.preventDefault();
     const AuthData = { email: Email, password: Password };
     try {
-      const response = await fetch(`https://rfidtaptogo.vercel.app/api/admin/login`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(AuthData),
-      });
+      const response = await fetch(
+        `https://rfidtaptogo.vercel.app/api/admin/login`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(AuthData),
+        }
+      );
       if (response.status === 200) {
         //se esta ejecutando la alerta con un mensaje de acceso
         Toast.fire({
@@ -42,7 +47,6 @@ export default function LoginPage() {
 
   //Se esta utilizando la libreria sweetalert
 
-
   //Toast es una constante que almacena una alerta del sweetalert
   const Toast = Swal.mixin({
     toast: true,
@@ -57,20 +61,20 @@ export default function LoginPage() {
   });
 
   useEffect(() => {
-    document.title = "Inicio de sesión";
+    document.title = "Login";
   }, []);
 
   return (
     <div className="flex items-center justify-center min-h-screen">
       <div className="w-full max-w-xl p-6 bg-blueForm rounded-lg">
         <h2 className="text-center text-2xl text-base-100 font-bold mb-6">
-          Inicio de sesión
+          {t("Login.Title")}
         </h2>
 
         <form onSubmit={handlerSubmit} className="space-y-10">
           <div className="mb-4">
             <label className="block text-left text-base-100">
-              Correo electrónico
+              {t("Login.EmailPlaceholder")}
             </label>
             <input
               type="email"
@@ -82,7 +86,7 @@ export default function LoginPage() {
           </div>
 
           <div className="mb-4">
-            <label className="block text-left text-base-100">Contraseña</label>
+            <label className="block text-left text-base-100">{t("Login.PasswordPlaceholder")}</label>
             <input
               type="password"
               id="password"
@@ -95,7 +99,7 @@ export default function LoginPage() {
             type="submit"
             className="w-full mt-4 py-2 px-4 rounded-full bg-BTN text-base-100 font-bold hover:bg-BTNHover transition duration-200"
           >
-            Ingresar
+            {t("Login.Button")}
           </button>
         </form>
       </div>

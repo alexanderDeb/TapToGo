@@ -1,6 +1,8 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 
 export default function Hero() {
+  const { t } = useTranslation();
   return (
     <div
       className="hero min-h-screen"
@@ -12,13 +14,15 @@ export default function Hero() {
       <div className="hero-overlay bg-opacity-60"></div>
       <div className="hero-content text-neutral-content text-center">
         <div className="flex flex-col max-w-md items-center">
-          <h1 className="mb-5 text-5xl font-bold">¡Bienvenido!</h1>
+          <h1 className="mb-5 text-5xl font-bold">{t("Hero.Title")}</h1>
           <p className="mb-5">
-            Conoce las últimas noticias sobre el MIO y mantente informado de
-            todo lo que sucede en el sistema de transporte masivo de la ciudad.
+            {t("Hero.Parragraph")}
           </p>
-          <a href="#Noticias" className="flex justify-center items-center bg-BTN rounded-xl h-12 w-32 hover:bg-BTNHover transition-colors duration-300 text-white font-bold">
-            Empezar
+          <a
+            href="#Noticias"
+            className="flex justify-center items-center bg-BTN rounded-xl h-12 w-32 hover:bg-BTNHover transition-colors duration-300 text-white font-bold"
+          >
+            {t("Hero.Button")}
           </a>
         </div>
       </div>

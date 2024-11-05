@@ -1,24 +1,42 @@
-import { React, useState } from "react";
+import { React, useState, useEffect } from "react";
 import Drawer from "../components/drawer";
-// import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
+import Swal from "sweetalert2";
 
 //Estados del formulario
 export default function Register() {
-  // let navigate = useNavigate();
   const [Name, setName] = useState("");
   const [Email, setEmail] = useState("");
   const [Role, setRole] = useState("ADMIN");
   const [Status, setStatus] = useState(true);
   const [Password, setPassword] = useState("");
   const [ConfirmPassword, setConfirmPassword] = useState("");
+  const { t } = useTranslation();
+
+  useEffect(() => {
+    document.title = "Register";
+  }, []);
 
   //URL del registro en la API
   const register_URL = "https://rfidtaptogo.vercel.app/api/admin/register";
 
-  const handlerSubmit = async (e) => {
-    //Evita que la pagina se recargue
-    e.preventDefault();
+  //Se esta utilizando la libreria sweetalert
 
+  //Toast es una constante que almacena una alerta del sweetalert
+  const Toast = Swal.mixin({
+    toast: true,
+    position: "top-end",
+    showConfirmButton: false,
+    timer: 3000,
+    timerProgressBar: true,
+    didOpen: (toast) => {
+      toast.onmouseenter = Swal.stopTimer;
+      toast.onmouseleave = Swal.resumeTimer;
+    },
+  });
+
+  const handlerSubmit = async (e) => {
+    e.preventDefault();
     if (Password === ConfirmPassword) {
       try {
         //Datos que se envian al API
@@ -38,10 +56,17 @@ export default function Register() {
         //respuesta
         const ResponseJson = await response.json();
         if (response.status === 200) {
-          console.log(ResponseJson);
-          alert("Se registro el usuario exitosamente");
+          console.log(response.status);
+          Toast.fire({
+            icon: "success",
+            title: "Se registro exitosamente al usuario",
+          });
+          window.location.reload();
         } else {
-          alert("No se pudo registar el usuario. ");
+          Toast.fire({
+            icon: "error",
+            title: "No se pudo registrar el usuario",
+          });
         }
       } catch (error) {
         console.error(error);
@@ -59,11 +84,13 @@ export default function Register() {
 
       <div className="bg-blueForm p-8 rounded-lg shadow-lg w-full max-w-xl z-20">
         <p className="text-base-100 text-center font-bold mb-4">
-          Ingresa los siguientes datos para registrar un administrador o usuario
+          {t("Register.Title")}
         </p>
         <form onSubmit={handlerSubmit} className="space-y-4">
           <div>
-            <label className="block text-left text-base-100">Nombre</label>
+            <label className="block text-left text-base-100">
+              {t("Register.NamePlaceholder")}
+            </label>
             <input
               type="text"
               value={Name}
@@ -77,7 +104,9 @@ export default function Register() {
           </div>
 
           <div>
-            <label className="block text-left text-base-100">Correo</label>
+            <label className="block text-left text-base-100">
+              {t("Register.EmailPlaceholder")}
+            </label>
             <input
               type="email"
               value={Email}
@@ -105,7 +134,9 @@ export default function Register() {
             </div>
 
             <div className="w-full">
-              <label className="block text-left text-base-100">Estado</label>
+              <label className="block text-left text-base-100">
+                {t("Register.StatusPlaceholder")}
+              </label>
               <select
                 value={Status}
                 onChange={(e) => setStatus(e.target.value)}
@@ -113,10 +144,10 @@ export default function Register() {
                 className="input input-bordered w-full"
               >
                 <option value="" disabled>
-                  Selecciona un estado
+                  {t("Register.Selector")}
                 </option>
-                <option value="Activo">Activo</option>
-                <option value="Inactivo">Inactivo</option>
+                <option value="Activo">{t("Register.SelectorOpt1")}</option>
+                <option value="Inactivo">{t("Register.SelectorOpt2")}</option>
               </select>
             </div>
           </div>
@@ -125,7 +156,7 @@ export default function Register() {
           <div className="flex space-x-4">
             <div className="w-full">
               <label className="block text-left text-base-100">
-                Contraseña
+                {t("Register.PasswordPlaceholder")}
               </label>
               <input
                 type="password"
@@ -139,7 +170,7 @@ export default function Register() {
 
             <div className="w-full">
               <label className="block text-left text-base-100">
-                Repetir contraseña
+                {t("Register.RepPassPlaceholder")}
               </label>
               <input
                 type="password"
@@ -155,7 +186,7 @@ export default function Register() {
               type="submit"
               className="btn-circle w-full  bg-BTN hover:bg-BTNHover text-base-100 font-bold"
             >
-              Registrar
+              {t("Register.Button")}
             </button>
           </div>
         </form>

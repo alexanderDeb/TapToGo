@@ -6,7 +6,6 @@ module.exports = {
       fontFamily: {
         montserrat: ["Montserrat", "sans-serif"],
       },
-      scrollBehavior: ["smooth"],
     },
     colors: {
       blueForm: "#0367A6",

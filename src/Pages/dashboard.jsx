@@ -4,9 +4,15 @@ import Drawer from "../components/drawer";
 import { FaCheckCircle } from "react-icons/fa";
 import { IoMdCloseCircle } from "react-icons/io";
 import Swal from "sweetalert2";
+import { useTranslation } from "react-i18next";
 
 export default function Dashboard() {
   const [info, setInfo] = useState("");
+  const { t } = useTranslation();
+
+  useEffect(() => {
+    document.title = "Dashboard";
+  }, []);
 
   const GetInfo = async () => {
     try {
@@ -42,24 +48,24 @@ export default function Dashboard() {
 
   const columns = [
     {
-      name: "Nombre completo",
+      name: t("Dashboard.Table.Name"),
       selector: (row) => row.name,
     },
     {
-      name: "Correo electrónico",
+      name: t("Dashboard.Table.Email"),
       selector: (row) => row.email,
     },
     {
-      name: "Número de tarjeta",
+      name: t("Dashboard.Table.Card"),
       selector: (row) => row.rfid,
     },
     {
-      name: "Saldo",
+      name: t("Dashboard.Table.Balance"),
       selector: (row) => row.saldo,
       sortable: true,
     },
     {
-      name: "Estado",
+      name: t("Dashboard.Table.Status"),
       selector: (row) => row.status,
       cell: (row) =>
         row.status === true ? (
@@ -69,7 +75,7 @@ export default function Dashboard() {
         ),
     },
     {
-      name: "Activar",
+      name: t("Dashboard.Table.Activate"),
       selector: (row) => row.status,
       cell: (row) => (
         <button
@@ -111,7 +117,7 @@ export default function Dashboard() {
       ),
     },
     {
-      name: "Desactivar",
+      name: t("Dashboard.Table.Deactivate"),
       selector: (row) => row.status,
       cell: (row) => (
         <button
@@ -160,7 +166,7 @@ export default function Dashboard() {
       <div className="flex flex-col items-center justify-center h-screen z-20">
         <div className="w-3/5">
           <h1 className="text-start text-2xl font-bold text-blueForm">
-            Usuarios
+            {t("Dashboard.Title")}
           </h1>
         </div>
         <div className="flex flex-col h-4/5 w-4/6 justify-center items-center p-4 shadow-xl">

@@ -7,8 +7,11 @@ import Card1 from "../assets/Card1.png";
 import Card2 from "../assets/Card2.jpg";
 import Card3 from "../assets/Card3.jpg";
 import Hero from "../components/hero";
+import { useTranslation } from "react-i18next";
 
 export default function WelcomePage() {
+  const { t } = useTranslation();
+
   useEffect(() => {
     document.title = "Home";
   }, []);
@@ -19,26 +22,26 @@ export default function WelcomePage() {
       <Hero />
       <div className="flex flex-col h-screen space-y-40 pt-40" id="Noticias">
         <div className="flex flex-col justify-center items-center space-y-6">
-          <h1 className="text-blueForm font-extrabold text-3xl">Noticias</h1>
-          <h1 className="text-xl">
-            ¡Entérate de las últimas noticias sobre el MIO!
+          <h1 className="text-blueForm font-extrabold text-3xl">
+            {t("Welcome.Title")}
           </h1>
+          <h1 className="text-xl">{t("Welcome.Subtitle")}</h1>
         </div>
         <div className="flex flex-col md:flex-row space-y-4 md:space-y-0 px-6 justify-between items-center md:px-32">
           <InfoCard
             image={Card1}
-            title="Innovación en el Transporte"
-            description="Se celebró un evento donde jóvenes presentaron soluciones para mejorar el transporte público, destacando la importancia de la participación comunitaria en la creación de aplicaciones más eficientes."
+            title={t("Cards.Title1")}
+            description={t("Cards.Description1")}
           />
           <InfoCard
             image={Card2}
-            title="Movilidad Inclusiva y Sostenible"
-            description="Una nueva agenda de investigación promueve el uso de aplicaciones móviles que favorezcan la inclusión y sostenibilidad, lo cual es clave para aumentar la aceptación del servicio entre todos los usuarios."
+            title={t("Cards.Title2")}
+            description={t("Cards.Description2")}
           />
           <InfoCard
             image={Card3}
-            title="Uso de Tecnología Avanzada"
-            description="La implementación de tecnologías inteligentes, como sistemas de localización por Bluetooth, está mejorando la experiencia del usuario al ofrecer información en tiempo real y optimizar la gestión de rutas."
+            title={t("Cards.Title3")}
+            description={t("Cards.Description3")}
           />
         </div>
       </div>
@@ -51,18 +54,17 @@ export default function WelcomePage() {
           </div>
           <div className="flex flex-col w-1/2 h-full justify-center items-start">
             <h1 className="text-2xl font-semibold">
-              ¿Eres usuario de nuestro trasporte?
+              {t("App.Question")}
             </h1>
             <p>
-              Presiona el botón a continuación para descargar nuestro aplicativo
-              móvil y optimiza tu experiencia en el MIO con un solo toque.{" "}
+              {t("App.Description")}
             </p>
             <div className="flex flex-col items-center pt-5 space-y-2">
               <a
-                href="https://expo.dev/artifacts/eas/xAtnZQdjk9J9ctRRshCHT6.apk"
+                href="https://expo.dev/artifacts/eas/oUudEWKDKrJg7i5MFWFsnZ.apk"
                 className="flex justify-center items-center  text-white h-12 w-36 bg-blueForm rounded-lg hover:bg-blueSecond"
               >
-                Descarga aqui
+                {t("App.Button")}
               </a>
             </div>
           </div>

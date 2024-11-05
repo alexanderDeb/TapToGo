@@ -4,10 +4,16 @@ import StatsCard from "../components/statsCard";
 import { Line } from "react-chartjs-2";
 import Chart from "chart.js/auto";
 import { CategoryScale } from "chart.js";
+import { useTranslation } from "react-i18next";
 
 export default function Stadistics() {
   Chart.register(CategoryScale);
   const [info, setInfo] = useState("");
+  const { t } = useTranslation();
+
+  useEffect(() => {
+    document.title = "Stadistics";
+  }, []);
 
   const GetInfo = async () => {
     try {
@@ -36,9 +42,9 @@ export default function Stadistics() {
         <div className="flex flex-col lg:flex-row  w-full justify-center items-center gap-8">
           {info.length !== 0 ? (
             <StatsCard
-              title="Usuarios registrados"
+              title={t("Stads.Title1")}
               value={info.length}
-              message="Cantidad de usuarios registrados actualmente en la aplicacion movil"
+              message={t("Stads.Description1")}
               color="#0284c7"
             />
           ) : (
@@ -51,52 +57,51 @@ export default function Stadistics() {
           )}
           {info.length !== 0 ? (
             <StatsCard
-              title="Usuarios activos"
+              title={t("Stads.Title2")}
               value={
                 info.filter((e) => {
                   return e.status === true;
                 }).length
               }
-              message="Cantidad de usuarios activos en la plataforma"
+              message={t("Stads.Description2")}
               color="#65a30d"
             />
           ) : (
             <StatsCard
-              title="hola"
-              value="77"
-              message="hola mundo"
+              title="Error"
+              value="0"
+              message="Error"
               color="#dc2626"
             />
           )}
           {info.length !== 0 ? (
             <StatsCard
-              title="Usuarios inactivos"
+              title={t("Stads.Title3")}
               value={
                 info.filter((e) => {
                   return e.status === false;
                 }).length
               }
-              message="Cantidad de usuarios inactivos dentro de la plataforma"
+              message={t("Stads.Description3")}
               color="#dc2626"
             />
           ) : (
             <StatsCard
-              title="hola"
-              value="77"
-              message="hola mundo"
+              title="Error"
+              value="0"
+              message="Error"
               color="#dc2626"
             />
           )}
         </div>
         <div className="flex flex-col h-full w-full justify-center items-center">
-        
           {info.length !== 0 ? (
             <Line
               data={{
                 labels: info.map((data) => data.name),
                 datasets: [
                   {
-                    label: "Saldo por usuario",
+                    label: t("Stads.StadTitle"),
                     data: info.map((data) => data.saldo),
                     fill: false,
                     borderColor: "rgb(75, 192, 192)",
